@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Camera-->
+        <scene sceneID="k0f-4m-EPn">
+            <objects>
+                <viewController id="cl3-0j-UGw" customClass="CameraVC" customModule="DevstagramPro" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RAS-Id-a8j"/>
+                        <viewControllerLayoutGuide type="bottom" id="3BI-8d-7Vo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rlk-KO-uoc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Camera" id="4I7-oA-CqF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lGU-DX-tSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3063" y="804"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IuM-vY-21e">
+            <objects>
+                <navigationController storyboardIdentifier="CameraID" automaticallyAdjustsScrollViewInsets="NO" id="Ti5-7H-6sN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="Photo.png" selectedImage="Photo.png" id="Sdx-QW-J3u">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5zS-R5-qFX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cl3-0j-UGw" kind="relationship" relationship="rootViewController" id="6cX-g5-BNe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6pK-5t-WVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3063" y="114"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Photo.png" width="22" height="23"/>
+    </resources>
+</document>

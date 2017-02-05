@@ -1,0 +1,6 @@
+framework module Pods_DevstagramPro {
+  umbrella header "Pods-DevstagramPro-umbrella.h"
+
+  export *
+  module * { export * }
+}
