@@ -22,7 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="gKW-45-uuN"/>
+                    <navigationItem key="navigationItem" title="Home" id="gKW-45-uuN">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="lER-PL-Xn6">
+                            <connections>
+                                <action selector="logOutBtnClicked:" destination="eZh-PH-Teb" id="hxf-Hi-2il"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njK-6z-lMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

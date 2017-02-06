@@ -47,6 +47,9 @@ class SignInVC: UIViewController {
         passwordTxt.layer.addSublayer(bottomLayer2)
         
         handleTextField()
+        
+        
+        
     }
     
     func handleTextField() {
@@ -64,13 +67,26 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func signInClicked(_ sender: Any) {
+    
         FIRAuth.auth()?.signIn(withEmail: emailTxt.text!, password: passwordTxt.text!, completion: { (user, error) in
             if error != nil {
                 print(error!.localizedDescription)
+                
             } else {
-                self.performSegue(withIdentifier: "NaviSegue", sender: nil)
+            self.performSegue(withIdentifier: "NaviSegue", sender: nil)
+               
             }
+            
         })
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // auto sign in current user
+        if ((FIRAuth.auth()?.currentUser) != nil) {
+            self.performSegue(withIdentifier: "NaviSegue", sender: nil)
+            
+        }
+    }
+    
 }
 

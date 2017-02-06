@@ -7,16 +7,30 @@
 //
 
 import UIKit
+import FirebaseAuth
+
 
 class HomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+      
     }
 
    
+    @IBAction func logOutBtnClicked(_ sender: Any) {
+        
+        do {
+            try FIRAuth.auth()?.signOut()
+        } catch let error {
+            print(error)
+        }
+        // dismiss(animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let signInVC = storyboard.instantiateViewController(withIdentifier: "SignInVC")
+        self.present(signInVC, animated: true, completion: nil)
+    }
     
     
     
