@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,15 +18,79 @@
                         <viewControllerLayoutGuide type="bottom" id="3BI-8d-7Vo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rlk-KO-uoc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49z-nn-xQu">
+                                <rect key="frame" x="0.0" y="64" width="320" height="120"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image.png" translatesAutoresizingMaskIntoConstraints="NO" id="s3e-n7-AaD">
+                                        <rect key="frame" x="8" y="20" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="BO4-J0-9fh"/>
+                                            <constraint firstAttribute="width" constant="80" id="cnm-fU-xl1"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zxj-fL-HD3">
+                                        <rect key="frame" x="96" y="20" width="216" height="80"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="s3e-n7-AaD" firstAttribute="leading" secondItem="49z-nn-xQu" secondAttribute="leading" constant="8" id="1D1-De-mdh"/>
+                                    <constraint firstAttribute="height" constant="120" id="3cp-bh-Qxm"/>
+                                    <constraint firstAttribute="bottom" secondItem="zxj-fL-HD3" secondAttribute="bottom" constant="20" id="4KB-Su-Rjp"/>
+                                    <constraint firstAttribute="trailing" secondItem="zxj-fL-HD3" secondAttribute="trailing" constant="8" id="5yA-fF-jIT"/>
+                                    <constraint firstItem="zxj-fL-HD3" firstAttribute="top" secondItem="49z-nn-xQu" secondAttribute="top" constant="20" id="N71-I5-pK4"/>
+                                    <constraint firstItem="zxj-fL-HD3" firstAttribute="leading" secondItem="s3e-n7-AaD" secondAttribute="trailing" constant="8" id="rg2-gH-EQK"/>
+                                    <constraint firstItem="s3e-n7-AaD" firstAttribute="top" secondItem="49z-nn-xQu" secondAttribute="top" constant="20" id="sGl-hp-lFf"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cm3-EP-msR">
+                                <rect key="frame" x="8" y="461" width="304" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9km-pn-VwH"/>
+                                </constraints>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareBtnClicked:" destination="cl3-0j-UGw" eventType="touchUpInside" id="Vbv-gE-CKE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Cm3-EP-msR" firstAttribute="leading" secondItem="Rlk-KO-uoc" secondAttribute="leading" constant="8" id="ScK-Eq-fAf"/>
+                            <constraint firstItem="49z-nn-xQu" firstAttribute="leading" secondItem="Rlk-KO-uoc" secondAttribute="leading" id="Wbr-sC-E69"/>
+                            <constraint firstItem="49z-nn-xQu" firstAttribute="top" secondItem="RAS-Id-a8j" secondAttribute="bottom" id="dZ2-Kk-Yia"/>
+                            <constraint firstItem="3BI-8d-7Vo" firstAttribute="top" secondItem="Cm3-EP-msR" secondAttribute="bottom" constant="8" id="pEi-0q-ZkW"/>
+                            <constraint firstAttribute="trailing" secondItem="49z-nn-xQu" secondAttribute="trailing" id="tYD-0Q-lDm"/>
+                            <constraint firstAttribute="trailing" secondItem="Cm3-EP-msR" secondAttribute="trailing" constant="8" id="wIU-o9-Hlw"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Camera" id="4I7-oA-CqF"/>
+                    <navigationItem key="navigationItem" title="Camera" id="4I7-oA-CqF">
+                        <barButtonItem key="leftBarButtonItem" title="Remove" id="qlT-NA-iSG">
+                            <connections>
+                                <action selector="removeBtnClicked:" destination="cl3-0j-UGw" id="1yz-6q-WGg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoImg" destination="s3e-n7-AaD" id="PN0-cR-gEs"/>
+                        <outlet property="removeBtn" destination="qlT-NA-iSG" id="Ye8-oC-piQ"/>
+                        <outlet property="shareBtn" destination="Cm3-EP-msR" id="hvf-lr-0gS"/>
+                        <outlet property="textView" destination="zxj-fL-HD3" id="t8U-y2-Y0c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lGU-DX-tSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3063" y="804"/>
+            <point key="canvasLocation" x="-3063.1999999999998" y="803.74812593703155"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IuM-vY-21e">
@@ -53,5 +117,6 @@
     </scenes>
     <resources>
         <image name="Photo.png" width="22" height="23"/>
+        <image name="Placeholder-image.png" width="840" height="600"/>
     </resources>
 </document>

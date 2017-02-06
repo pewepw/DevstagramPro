@@ -11,6 +11,7 @@
 		4A05464B1E4841F100034079 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05464A1E4841F000034079 /* Helper.swift */; };
 		4A0546521E4853B700034079 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4A05464F1E4853B700034079 /* ProgressHUD.bundle */; };
 		4A0546531E4853B700034079 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0546511E4853B700034079 /* ProgressHUD.m */; };
+		4A2B44E71E48D5E9005D8CE1 /* Placeholder-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2B44E61E48D5E9005D8CE1 /* Placeholder-image.png */; };
 		4A61AC441E44F11B00AF0F4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61AC431E44F11B00AF0F4F /* AppDelegate.swift */; };
 		4A61AC461E44F11B00AF0F4F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61AC451E44F11B00AF0F4F /* SignInVC.swift */; };
 		4A61AC4B1E44F11B00AF0F4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A61AC4A1E44F11B00AF0F4F /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		4A9C81CE1E465C1D009AF2FD /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81CD1E465C1D009AF2FD /* Activity.storyboard */; };
 		4A9C81D01E465C65009AF2FD /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81CF1E465C65009AF2FD /* Profile.storyboard */; };
 		4A9C81D61E466DFD009AF2FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */; };
+		4AC586661E4891020068A84B /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AC586651E488F670068A84B /* Pacifico.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,7 @@
 		4A05464F1E4853B700034079 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		4A0546501E4853B700034079 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		4A0546511E4853B700034079 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		4A2B44E61E48D5E9005D8CE1 /* Placeholder-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder-image.png"; sourceTree = "<group>"; };
 		4A61AC401E44F11B00AF0F4F /* DevstagramPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevstagramPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A61AC431E44F11B00AF0F4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A61AC451E44F11B00AF0F4F /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 		4A9C81CD1E465C1D009AF2FD /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		4A9C81CF1E465C65009AF2FD /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4AC586651E488F670068A84B /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		6FB7DB14F7C955DAA5CC5299 /* Pods-DevstagramPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevstagramPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevstagramPro/Pods-DevstagramPro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,10 +106,12 @@
 				4A61AC4F1E44F11B00AF0F4F /* Info.plist */,
 				4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */,
 				4A61AC4A1E44F11B00AF0F4F /* Assets.xcassets */,
+				4A2B44E61E48D5E9005D8CE1 /* Placeholder-image.png */,
 				4A05464F1E4853B700034079 /* ProgressHUD.bundle */,
 				4A0546501E4853B700034079 /* ProgressHUD.h */,
 				4A0546511E4853B700034079 /* ProgressHUD.m */,
 				4A05464E1E4853B600034079 /* DevstagramPro-Bridging-Header.h */,
+				4AC586651E488F670068A84B /* Pacifico.ttf */,
 			);
 			path = DevstagramPro;
 			sourceTree = "<group>";
@@ -129,12 +135,12 @@
 			children = (
 				4A61AC451E44F11B00AF0F4F /* SignInVC.swift */,
 				4A8AAC1F1E4630DB0022E4A3 /* SignUpVC.swift */,
-				4A05464A1E4841F000034079 /* Helper.swift */,
 				4A8AAC291E46442A0022E4A3 /* HomeVC.swift */,
 				4A8AAC2B1E46444C0022E4A3 /* DiscoverVC.swift */,
 				4A8AAC2D1E46445A0022E4A3 /* CameraVC.swift */,
 				4A8AAC311E46446F0022E4A3 /* ActivityVC.swift */,
 				4A8AAC2F1E4644640022E4A3 /* ProfileVC.swift */,
+				4A05464A1E4841F000034079 /* Helper.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -222,10 +228,12 @@
 			files = (
 				4A0546521E4853B700034079 /* ProgressHUD.bundle in Resources */,
 				4A9C81C81E465B1C009AF2FD /* Home.storyboard in Resources */,
+				4AC586661E4891020068A84B /* Pacifico.ttf in Resources */,
 				4A9C81D01E465C65009AF2FD /* Profile.storyboard in Resources */,
 				4A8AAC391E4658450022E4A3 /* Navigation.storyboard in Resources */,
 				4A61AC4E1E44F11B00AF0F4F /* LaunchScreen.storyboard in Resources */,
 				4A9C81CA1E465B86009AF2FD /* Discovery.storyboard in Resources */,
+				4A2B44E71E48D5E9005D8CE1 /* Placeholder-image.png in Resources */,
 				4A61AC4B1E44F11B00AF0F4F /* Assets.xcassets in Resources */,
 				4A8AAC371E46559C0022E4A3 /* Login.storyboard in Resources */,
 				4A9C81D61E466DFD009AF2FD /* GoogleService-Info.plist in Resources */,

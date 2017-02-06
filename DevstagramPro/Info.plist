@@ -45,5 +45,9 @@
 	<string></string>
 	<key>NSAppleMusicUsageDescription</key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>pacifico.ttf</string>
+	</array>
 </dict>
 </plist>

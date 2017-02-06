@@ -7,29 +7,148 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseDatabase
+import FirebaseAuth
+import SVProgressHUD
 
-class CameraVC: UIViewController {
-
+class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var photoImg: UIImageView!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var removeBtn: UIBarButtonItem!
+    
+    var selectedImage: UIImage?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
+        shareBtn.layer.cornerRadius = 5
+        
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CameraVC.didTapImage))
+        tapGesture.numberOfTapsRequired = 1
+        photoImg.isUserInteractionEnabled = true
+        photoImg.addGestureRecognizer(tapGesture)
+        
+    
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        // this func should be call at viewWillAppear
+        handleBadPost()
+        
     }
-    */
+    
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func didTapImage() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            selectedImage = photo
+            photoImg.image = photo
+        }
+        dismiss(animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    
+    
+    
+    @IBAction func shareBtnClicked(_ sender: Any) {
+        
+        SVProgressHUD.show()
+        
+        if let postsImg = self.selectedImage , let imageData = UIImageJPEGRepresentation(postsImg, 0.1) {
+            
+            let photoIDString = NSUUID().uuidString
+            let storageRef = FIRStorage.storage().reference().child("posts").child(photoIDString)
+            storageRef.put(imageData, metadata: nil, completion: { (metadata, error) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: error!.localizedDescription)
+                } else {
+                    let postsImgURL = metadata?.downloadURL()?.absoluteString
+                    
+                    self.sendDatatoDatabase(postsImgURL: postsImgURL!)
+                    
+                }
+                
+                
+            })
+            
+            
+        }
+        
+    }
+    
+    func sendDatatoDatabase (postsImgURL : String) {
+        let ref = FIRDatabase.database().reference()
+        let postReference = ref.child("posts")
+        let newPostID = postReference.childByAutoId().key
+        let newPostReference = postReference.child(newPostID)
+        newPostReference.setValue(["postsImgURL" : postsImgURL, "caption" : textView.text!]) { (error, reference) in
+            if error != nil {
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                return
+            }
+            SVProgressHUD.showSuccess(withStatus: "Post Shared")
+            self.tabBarController?.selectedIndex = 0
+            self.clean()
+            
+        }
+        
+        
+       
+        
+        
+    }
+    
+    func handleBadPost() {
+        if selectedImage != nil {
+            shareBtn.isEnabled = true
+            shareBtn.backgroundColor = UIColor.red
+            
+            removeBtn.isEnabled = true
+            
+        } else {
+            shareBtn.isEnabled = false
+            shareBtn.backgroundColor = UIColor.lightGray
+            
+            removeBtn.isEnabled = false
+            
+        }
+    }
 
+    
+    func clean() {
+        self.textView.text = ""
+        self.photoImg.image = UIImage(named: "Placeholder-image")
+        
+        // to disable share button for the next time user tap into cameraVC
+        self.selectedImage = nil
+    }
+    
+    @IBAction func removeBtnClicked(_ sender: Any) {
+        clean()
+        handleBadPost()
+    }
+    
+    
+    
 }
