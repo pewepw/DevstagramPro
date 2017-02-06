@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1638F11067285C48B372DA48 /* Pods_DevstagramPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1C1309E65F490FB28F4A2A /* Pods_DevstagramPro.framework */; };
+		4A05464B1E4841F100034079 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05464A1E4841F000034079 /* Helper.swift */; };
+		4A0546521E4853B700034079 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4A05464F1E4853B700034079 /* ProgressHUD.bundle */; };
+		4A0546531E4853B700034079 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0546511E4853B700034079 /* ProgressHUD.m */; };
 		4A61AC441E44F11B00AF0F4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61AC431E44F11B00AF0F4F /* AppDelegate.swift */; };
 		4A61AC461E44F11B00AF0F4F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61AC451E44F11B00AF0F4F /* SignInVC.swift */; };
 		4A61AC4B1E44F11B00AF0F4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A61AC4A1E44F11B00AF0F4F /* Assets.xcassets */; };
@@ -31,6 +34,11 @@
 /* Begin PBXFileReference section */
 		00FE365AF93ACCC7B66AB6B8 /* Pods-DevstagramPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevstagramPro.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevstagramPro/Pods-DevstagramPro.release.xcconfig"; sourceTree = "<group>"; };
 		0A1C1309E65F490FB28F4A2A /* Pods_DevstagramPro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevstagramPro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A05464A1E4841F000034079 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		4A05464E1E4853B600034079 /* DevstagramPro-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DevstagramPro-Bridging-Header.h"; sourceTree = "<group>"; };
+		4A05464F1E4853B700034079 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		4A0546501E4853B700034079 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		4A0546511E4853B700034079 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		4A61AC401E44F11B00AF0F4F /* DevstagramPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevstagramPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A61AC431E44F11B00AF0F4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A61AC451E44F11B00AF0F4F /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -94,6 +102,10 @@
 				4A61AC4F1E44F11B00AF0F4F /* Info.plist */,
 				4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */,
 				4A61AC4A1E44F11B00AF0F4F /* Assets.xcassets */,
+				4A05464F1E4853B700034079 /* ProgressHUD.bundle */,
+				4A0546501E4853B700034079 /* ProgressHUD.h */,
+				4A0546511E4853B700034079 /* ProgressHUD.m */,
+				4A05464E1E4853B600034079 /* DevstagramPro-Bridging-Header.h */,
 			);
 			path = DevstagramPro;
 			sourceTree = "<group>";
@@ -117,6 +129,7 @@
 			children = (
 				4A61AC451E44F11B00AF0F4F /* SignInVC.swift */,
 				4A8AAC1F1E4630DB0022E4A3 /* SignUpVC.swift */,
+				4A05464A1E4841F000034079 /* Helper.swift */,
 				4A8AAC291E46442A0022E4A3 /* HomeVC.swift */,
 				4A8AAC2B1E46444C0022E4A3 /* DiscoverVC.swift */,
 				4A8AAC2D1E46445A0022E4A3 /* CameraVC.swift */,
@@ -179,6 +192,7 @@
 					4A61AC3F1E44F11A00AF0F4F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 46SPJZ9KQP;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -206,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0546521E4853B700034079 /* ProgressHUD.bundle in Resources */,
 				4A9C81C81E465B1C009AF2FD /* Home.storyboard in Resources */,
 				4A9C81D01E465C65009AF2FD /* Profile.storyboard in Resources */,
 				4A8AAC391E4658450022E4A3 /* Navigation.storyboard in Resources */,
@@ -276,9 +291,11 @@
 			files = (
 				4A61AC461E44F11B00AF0F4F /* SignInVC.swift in Sources */,
 				4A8AAC321E46446F0022E4A3 /* ActivityVC.swift in Sources */,
+				4A0546531E4853B700034079 /* ProgressHUD.m in Sources */,
 				4A8AAC2E1E46445A0022E4A3 /* CameraVC.swift in Sources */,
 				4A8AAC301E4644640022E4A3 /* ProfileVC.swift in Sources */,
 				4A8AAC2C1E46444C0022E4A3 /* DiscoverVC.swift in Sources */,
+				4A05464B1E4841F100034079 /* Helper.swift in Sources */,
 				4A8AAC2A1E46442A0022E4A3 /* HomeVC.swift in Sources */,
 				4A8AAC201E4630DB0022E4A3 /* SignUpVC.swift in Sources */,
 				4A61AC441E44F11B00AF0F4F /* AppDelegate.swift in Sources */,
@@ -405,11 +422,14 @@
 			baseConfigurationReference = 6FB7DB14F7C955DAA5CC5299 /* Pods-DevstagramPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 46SPJZ9KQP;
 				INFOPLIST_FILE = DevstagramPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.devconcept.DevstagramPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DevstagramPro/DevstagramPro-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -419,11 +439,13 @@
 			baseConfigurationReference = 00FE365AF93ACCC7B66AB6B8 /* Pods-DevstagramPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 46SPJZ9KQP;
 				INFOPLIST_FILE = DevstagramPro/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.devconcept.DevstagramPro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DevstagramPro/DevstagramPro-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

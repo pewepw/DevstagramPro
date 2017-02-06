@@ -77,6 +77,10 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     func handleTextField() {
         usernameTxt.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: .editingChanged)
         emailTxt.addTarget(self, action: #selector(SignUpVC.textFieldDidChange), for: .editingChanged)
@@ -136,31 +140,53 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     
     @IBAction func signUpClicked(_ sender: Any) {
-        FIRAuth.auth()?.createUser(withEmail: emailTxt.text!, password: passwordTxt.text!, completion: { (user : FIRUser?, error : Error?) in
-            if error != nil {
-                print(error!.localizedDescription)
-            } else {
-                
-                let storageRef = FIRStorage.storage().reference().child("profile_image").child(user!.uid)
-                if let profileImg = self.selectedImage , let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+        
+        view.endEditing(true)
+        //ProgressHUD.show("Please Wait", interaction: false)
+        
+        if let profileImg = self.selectedImage , let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+            
+            
+            FIRAuth.auth()?.createUser(withEmail: emailTxt.text!, password: passwordTxt.text!, completion: { (user : FIRUser?, error : Error?) in
+                if error != nil {
+                    print(error!.localizedDescription)
+                    ProgressHUD.showError(error!.localizedDescription)
+                } else {
                     
+                    ProgressHUD.showSuccess("Success")
+                    
+                    let storageRef = FIRStorage.storage().reference().child("profile_image").child(user!.uid)
                     storageRef.put(imageData, metadata: nil, completion: { (metadata, error) in
                         if error != nil {
-                            return
+                            print(error!.localizedDescription)
+                        } else {
+                            let profileImageURL = metadata?.downloadURL()?.absoluteString
+                            
+                            let ref = FIRDatabase.database().reference()
+                            ref.child("users").child(user!.uid).setValue(["username" : self.usernameTxt.text!, "email" : self.emailTxt.text!, "profile_image_url"  : profileImageURL])
+                            self.performSegue(withIdentifier: "NaviSegue2", sender: nil)
+                            
                         }
                         
-                        let profileImageURL = metadata?.downloadURL()?.absoluteString
-                        
-                        let ref = FIRDatabase.database().reference()
-                        ref.child("users").child(user!.uid).setValue(["username" : self.usernameTxt.text!, "email" : self.emailTxt.text!, "profile_image_url"  : profileImageURL])
-                        
-                        
-                        self.performSegue(withIdentifier: "NaviSegue2", sender: nil)
                         
                     })
                     
                     
                 }
+            })
+            
+        } else {
+            ProgressHUD.showError("Please Upload Profile Photo")
+        }
+        
+    }
+    
+    
+            
+      
+    
+                
+                
                 
                 
                 //                well, another way
@@ -171,12 +197,11 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 //                newUsersReference.setValue(["username" : self.usernameTxt.text!, "email" : self.emailTxt.text!])
                 
                 
-            }
-        })
-    }
+        
     
     
     @IBAction func dismissClicked(_ sender: Any) {
+        
         self.dismiss(animated: true, completion: nil)
     }
     

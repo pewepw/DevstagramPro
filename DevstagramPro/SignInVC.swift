@@ -67,18 +67,29 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func signInClicked(_ sender: Any) {
-    
+        
+        view.endEditing(true)
+        //ProgressHUD.show("Please Wait", interaction: false)
         FIRAuth.auth()?.signIn(withEmail: emailTxt.text!, password: passwordTxt.text!, completion: { (user, error) in
             if error != nil {
                 print(error!.localizedDescription)
+                ProgressHUD.showError(error!.localizedDescription)
                 
             } else {
-            self.performSegue(withIdentifier: "NaviSegue", sender: nil)
-               
+                ProgressHUD.showSuccess("Logged In")
+                self.performSegue(withIdentifier: "NaviSegue", sender: nil)
+                
             }
             
         })
+        
     }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         // auto sign in current user

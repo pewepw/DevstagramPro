@@ -151,7 +151,6 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="dismissClicked:" destination="fl7-pE-AvB" eventType="touchUpInside" id="En2-Fn-Mec"/>
                                             <action selector="signUpClicked:" destination="fl7-pE-AvB" eventType="touchUpInside" id="1l8-O3-UtT"/>
                                         </connections>
                                     </button>
@@ -196,7 +195,7 @@
                         <outlet property="passwordTxt" destination="qT0-lH-z7x" id="QaJ-Ox-pLi"/>
                         <outlet property="signUpBtn" destination="YXC-Hv-4FI" id="oys-Py-HWX"/>
                         <outlet property="usernameTxt" destination="Cco-4T-aMQ" id="N7h-cu-dDy"/>
-                        <segue destination="nEZ-Np-Eu6" kind="presentation" identifier="NaviSegue2" id="X9P-C1-Jeg"/>
+                        <segue destination="nEZ-Np-Eu6" kind="presentation" identifier="NaviSegue2" id="CRY-UU-eKX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18W-YB-79k" sceneMemberID="firstResponder"/>
@@ -216,6 +215,6 @@
         <image name="ava" width="1290" height="1290"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X9P-C1-Jeg"/>
+        <segue reference="CRY-UU-eKX"/>
     </inferredMetricsTieBreakers>
 </document>
