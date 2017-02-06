@@ -25,6 +25,8 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        SVProgressHUD.setMaximumDismissTimeInterval(2)
+        
         // disable signup button
         signUpBtn.isEnabled = false
         signUpBtn.setTitleColor(UIColor.lightText, for: .normal)

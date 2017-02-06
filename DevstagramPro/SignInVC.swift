@@ -19,6 +19,8 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       SVProgressHUD.setMaximumDismissTimeInterval(2)
+        
         // disable signup button
         signInBtn.isEnabled = false
         signInBtn.setTitleColor(UIColor.lightText, for: .normal)
