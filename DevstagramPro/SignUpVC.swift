@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import SVProgressHUD
 
 class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -142,7 +143,7 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBAction func signUpClicked(_ sender: Any) {
         
         view.endEditing(true)
-        //ProgressHUD.show("Please Wait", interaction: false)
+        SVProgressHUD.show()
         
         if let profileImg = self.selectedImage , let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
             
@@ -150,10 +151,10 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             FIRAuth.auth()?.createUser(withEmail: emailTxt.text!, password: passwordTxt.text!, completion: { (user : FIRUser?, error : Error?) in
                 if error != nil {
                     print(error!.localizedDescription)
-                    ProgressHUD.showError(error!.localizedDescription)
+                    SVProgressHUD.showError(withStatus: error!.localizedDescription)
                 } else {
                     
-                    ProgressHUD.showSuccess("Success")
+                    SVProgressHUD.showSuccess(withStatus: "Success!")
                     
                     let storageRef = FIRStorage.storage().reference().child("profile_image").child(user!.uid)
                     storageRef.put(imageData, metadata: nil, completion: { (metadata, error) in
@@ -176,7 +177,7 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             })
             
         } else {
-            ProgressHUD.showError("Please Upload Profile Photo")
+            SVProgressHUD.showError(withStatus: "Please Upload Profile Photo")
         }
         
     }

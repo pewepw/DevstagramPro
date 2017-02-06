@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SVProgressHUD
 
 class SignInVC: UIViewController {
     
@@ -69,14 +70,14 @@ class SignInVC: UIViewController {
     @IBAction func signInClicked(_ sender: Any) {
         
         view.endEditing(true)
-        //ProgressHUD.show("Please Wait", interaction: false)
+        SVProgressHUD.show()
         FIRAuth.auth()?.signIn(withEmail: emailTxt.text!, password: passwordTxt.text!, completion: { (user, error) in
             if error != nil {
                 print(error!.localizedDescription)
-                ProgressHUD.showError(error!.localizedDescription)
+                SVProgressHUD.showError(withStatus: error!.localizedDescription)
                 
             } else {
-                ProgressHUD.showSuccess("Logged In")
+                SVProgressHUD.showSuccess(withStatus: "Logged In!")
                 self.performSegue(withIdentifier: "NaviSegue", sender: nil)
                 
             }
