@@ -21,6 +21,8 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 527
+        tableView.rowHeight = UITableViewAutomaticDimension
         loadPosts()
         
     }
@@ -72,14 +74,18 @@ class HomeVC: UIViewController {
 
 extension HomeVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath)
-        //let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! HomeVCCell
+        cell.avaImg.image = UIImage(named: "like")
         
-        cell.textLabel?.text = posts[indexPath.row].caption
+        cell.nameLbl.text = "Erica"
+        cell.postImgView.image = UIImage(named: "like")
+        cell.captionLbl.text = "testiing 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123  te"
+        //let cell = UITableViewCell()
+        //cell.textLabel?.text = posts[indexPath.row].caption
         return cell
     }
     

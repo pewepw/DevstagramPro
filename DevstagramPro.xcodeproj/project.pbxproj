@@ -31,6 +31,7 @@
 		4A9C81D01E465C65009AF2FD /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81CF1E465C65009AF2FD /* Profile.storyboard */; };
 		4A9C81D61E466DFD009AF2FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */; };
 		4AC586661E4891020068A84B /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AC586651E488F670068A84B /* Pacifico.ttf */; };
+		4AD1242D1E4A442C00E52810 /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		4A9C81CF1E465C65009AF2FD /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4AC586651E488F670068A84B /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
+		4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVCCell.swift; sourceTree = "<group>"; };
 		6FB7DB14F7C955DAA5CC5299 /* Pods-DevstagramPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevstagramPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DevstagramPro/Pods-DevstagramPro.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 				4A61AC451E44F11B00AF0F4F /* SignInVC.swift */,
 				4A8AAC1F1E4630DB0022E4A3 /* SignUpVC.swift */,
 				4A8AAC291E46442A0022E4A3 /* HomeVC.swift */,
+				4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */,
 				4A8AAC2B1E46444C0022E4A3 /* DiscoverVC.swift */,
 				4A8AAC2D1E46445A0022E4A3 /* CameraVC.swift */,
 				4A8AAC311E46446F0022E4A3 /* ActivityVC.swift */,
@@ -313,6 +316,7 @@
 				4A31C06F1E499B910079202C /* Post.swift in Sources */,
 				4A05464B1E4841F100034079 /* Helper.swift in Sources */,
 				4A8AAC2A1E46442A0022E4A3 /* HomeVC.swift in Sources */,
+				4AD1242D1E4A442C00E52810 /* HomeVCCell.swift in Sources */,
 				4A8AAC201E4630DB0022E4A3 /* SignUpVC.swift in Sources */,
 				4A61AC441E44F11B00AF0F4F /* AppDelegate.swift in Sources */,
 			);
