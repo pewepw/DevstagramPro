@@ -11,5 +11,6 @@ target 'DevstagramPro' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'SVProgressHUD'
+  pod 'SDWebImage'
 
 end

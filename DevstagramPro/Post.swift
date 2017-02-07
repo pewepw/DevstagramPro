@@ -10,13 +10,13 @@
 import Foundation
 class Post {
     var caption: String?
-    var photoUrl: String?
+    var photoURL: String?
     
     static func transformPostPhoto(dict: [String: Any]) -> Post {
         let post = Post()
         
         post.caption = dict["caption"] as? String
-        post.photoUrl = dict["photoUrl"] as? String
+        post.photoURL = dict["photoURL"] as? String
         return post
     }
     

@@ -10,13 +10,14 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import SDWebImage
 
 
 class HomeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var posts = [Post]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +27,7 @@ class HomeVC: UIViewController {
         loadPosts()
         
     }
-
+    
     
     
     func loadPosts() {
@@ -50,10 +51,10 @@ class HomeVC: UIViewController {
     //                self.tableView.reloadData()
     //            }
     //        }
-    //        
+    //
     //    }
-
-   
+    
+    
     @IBAction func logOutBtnClicked(_ sender: Any) {
         
         do {
@@ -74,17 +75,16 @@ class HomeVC: UIViewController {
 
 extension HomeVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! HomeVCCell
-        cell.avaImg.image = UIImage(named: "like")
+        let post = posts[indexPath.row]
         
-        cell.nameLbl.text = "Erica"
-        cell.postImgView.image = UIImage(named: "like")
-        cell.captionLbl.text = "testiing 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123 ng 123  testing 123  te"
-        //let cell = UITableViewCell()
+        // put value to the observer at HomeVCCell to run the function (alt)
+        cell.post = post
+        
         //cell.textLabel?.text = posts[indexPath.row].caption
         return cell
     }

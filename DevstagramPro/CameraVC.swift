@@ -83,9 +83,9 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error!.localizedDescription)
                 } else {
-                    let postsImgURL = metadata?.downloadURL()?.absoluteString
+                    let photoURL = metadata?.downloadURL()?.absoluteString
                     
-                    self.sendDatatoDatabase(postsImgURL: postsImgURL!)
+                    self.sendDatatoDatabase(photoURL: photoURL!)
                     
                 }
                 
@@ -97,12 +97,12 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
     }
     
-    func sendDatatoDatabase (postsImgURL : String) {
+    func sendDatatoDatabase (photoURL : String) {
         let ref = FIRDatabase.database().reference()
         let postReference = ref.child("posts")
         let newPostID = postReference.childByAutoId().key
         let newPostReference = postReference.child(newPostID)
-        newPostReference.setValue(["postsImgURL" : postsImgURL, "caption" : textView.text!]) { (error, reference) in
+        newPostReference.setValue(["photoURL" : photoURL, "caption" : textView.text!]) { (error, reference) in
             if error != nil {
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 return
