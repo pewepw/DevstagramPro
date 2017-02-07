@@ -24,21 +24,33 @@ class HomeVC: UIViewController {
         loadPosts()
         
     }
+
     
     
     func loadPosts() {
-        FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot : FIRDataSnapshot) in
-            if let dict = snapshot.value as? [String : Any] {
-                let captionText = dict["caption"] as! String
-                let postsImgURLString = dict["postsImgURL"] as! String
-                let post = Post(captionText: captionText, postsImgURLString: postsImgURLString)
-                self.posts.append(post)
-                print(self.posts)
+        FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let newPost = Post.transformPostPhoto(dict: dict)
+                self.posts.append(newPost)
                 self.tableView.reloadData()
             }
         }
-        
     }
+    
+    //    func loadPosts() {
+    //        FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot : FIRDataSnapshot) in
+    //            if let dict = snapshot.value as? [String : Any] {
+    //                let captionText = dict["caption"] as! String
+    //                let postsImgURLString = dict["postsImgURL"] as! String
+    //                let post = Post(captionText: captionText, postsImgURLString: postsImgURLString)
+    //                self.posts.append(post)
+    //                print(self.posts)
+    //                self.tableView.reloadData()
+    //            }
+    //        }
+    //        
+    //    }
+
    
     @IBAction func logOutBtnClicked(_ sender: Any) {
         

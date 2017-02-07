@@ -32,7 +32,7 @@
         <scene sceneID="cpN-D6-QHv">
             <objects>
                 <navigationController storyboardIdentifier="ProfileID" automaticallyAdjustsScrollViewInsets="NO" id="l1d-Ob-2jw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Profile.png" selectedImage="Profile_Selected" id="uQ6-hl-4Hd">
+                    <tabBarItem key="tabBarItem" title="" image="Profile" selectedImage="Profile_Selected" id="uQ6-hl-4Hd">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -52,7 +52,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Profile.png" width="20" height="21"/>
+        <image name="Profile" width="20" height="21"/>
         <image name="Profile_Selected" width="20" height="21"/>
     </resources>
 </document>

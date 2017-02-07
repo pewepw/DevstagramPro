@@ -32,7 +32,7 @@
         <scene sceneID="KuW-QR-dMo">
             <objects>
                 <navigationController storyboardIdentifier="ActivityID" automaticallyAdjustsScrollViewInsets="NO" id="3RY-OS-Zuo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Activity.png" selectedImage="Activity_Selected.png" id="nhD-4K-HRy">
+                    <tabBarItem key="tabBarItem" title="" image="Activity" selectedImage="Activity_Selected" id="nhD-4K-HRy">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -52,7 +52,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Activity.png" width="22" height="20"/>
-        <image name="Activity_Selected.png" width="22" height="20"/>
+        <image name="Activity" width="22" height="20"/>
+        <image name="Activity_Selected" width="22" height="20"/>
     </resources>
 </document>

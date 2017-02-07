@@ -11,7 +11,6 @@
 		4A05464B1E4841F100034079 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A05464A1E4841F000034079 /* Helper.swift */; };
 		4A0546521E4853B700034079 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4A05464F1E4853B700034079 /* ProgressHUD.bundle */; };
 		4A0546531E4853B700034079 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0546511E4853B700034079 /* ProgressHUD.m */; };
-		4A2B44E71E48D5E9005D8CE1 /* Placeholder-image.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2B44E61E48D5E9005D8CE1 /* Placeholder-image.png */; };
 		4A31C06F1E499B910079202C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A31C06E1E499B910079202C /* Post.swift */; };
 		4A61AC441E44F11B00AF0F4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61AC431E44F11B00AF0F4F /* AppDelegate.swift */; };
 		4A61AC461E44F11B00AF0F4F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61AC451E44F11B00AF0F4F /* SignInVC.swift */; };
@@ -42,7 +41,6 @@
 		4A05464F1E4853B700034079 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
 		4A0546501E4853B700034079 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		4A0546511E4853B700034079 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
-		4A2B44E61E48D5E9005D8CE1 /* Placeholder-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Placeholder-image.png"; sourceTree = "<group>"; };
 		4A31C06E1E499B910079202C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4A61AC401E44F11B00AF0F4F /* DevstagramPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevstagramPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A61AC431E44F11B00AF0F4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 				4A61AC4F1E44F11B00AF0F4F /* Info.plist */,
 				4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */,
 				4A61AC4A1E44F11B00AF0F4F /* Assets.xcassets */,
-				4A2B44E61E48D5E9005D8CE1 /* Placeholder-image.png */,
 				4A05464F1E4853B700034079 /* ProgressHUD.bundle */,
 				4A0546501E4853B700034079 /* ProgressHUD.h */,
 				4A0546511E4853B700034079 /* ProgressHUD.m */,
@@ -244,7 +241,6 @@
 				4A8AAC391E4658450022E4A3 /* Navigation.storyboard in Resources */,
 				4A61AC4E1E44F11B00AF0F4F /* LaunchScreen.storyboard in Resources */,
 				4A9C81CA1E465B86009AF2FD /* Discovery.storyboard in Resources */,
-				4A2B44E71E48D5E9005D8CE1 /* Placeholder-image.png in Resources */,
 				4A61AC4B1E44F11B00AF0F4F /* Assets.xcassets in Resources */,
 				4A8AAC371E46559C0022E4A3 /* Login.storyboard in Resources */,
 				4A9C81D61E466DFD009AF2FD /* GoogleService-Info.plist in Resources */,

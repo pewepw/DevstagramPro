@@ -24,7 +24,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49z-nn-xQu">
                                 <rect key="frame" x="0.0" y="64" width="320" height="120"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image.png" translatesAutoresizingMaskIntoConstraints="NO" id="s3e-n7-AaD">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="s3e-n7-AaD">
                                         <rect key="frame" x="8" y="20" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="BO4-J0-9fh"/>
@@ -96,7 +96,7 @@
         <scene sceneID="IuM-vY-21e">
             <objects>
                 <navigationController storyboardIdentifier="CameraID" automaticallyAdjustsScrollViewInsets="NO" id="Ti5-7H-6sN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Photo.png" selectedImage="Photo.png" id="Sdx-QW-J3u">
+                    <tabBarItem key="tabBarItem" title="" image="Photo" selectedImage="Photo" id="Sdx-QW-J3u">
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -116,7 +116,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Photo.png" width="22" height="23"/>
-        <image name="Placeholder-image.png" width="840" height="600"/>
+        <image name="Photo" width="22" height="23"/>
+        <image name="Placeholder-image" width="840" height="600"/>
     </resources>
 </document>

@@ -161,7 +161,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ava" translatesAutoresizingMaskIntoConstraints="NO" id="JrX-aZ-pkc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholderImg" translatesAutoresizingMaskIntoConstraints="NO" id="JrX-aZ-pkc">
                                 <rect key="frame" x="147.5" y="145" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="9fC-9a-DAX"/>
@@ -217,9 +217,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ava" width="1290" height="1290"/>
+        <image name="placeholderImg" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Or-Rh-BFv"/>
+        <segue reference="CRY-UU-eKX"/>
     </inferredMetricsTieBreakers>
 </document>
