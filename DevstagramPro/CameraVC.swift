@@ -97,12 +97,29 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
     }
     
+//    func sendDatatoDatabase (photoURL : String) {
+//        let ref = FIRDatabase.database().reference()
+//        let postReference = ref.child("posts")
+//        let newPostID = postReference.childByAutoId().key
+//        let newPostReference = postReference.child(newPostID)
+//        newPostReference.setValue(["photoURL" : photoURL, "caption" : textView.text!]) { (error, reference) in
+//            if error != nil {
+//                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+//                return
+//            }
+//            SVProgressHUD.showSuccess(withStatus: "Post Shared")
+//            self.tabBarController?.selectedIndex = 0
+//            self.clean()
+//            
+//        }
+    
     func sendDatatoDatabase (photoURL : String) {
-        let ref = FIRDatabase.database().reference()
-        let postReference = ref.child("posts")
-        let newPostID = postReference.childByAutoId().key
-        let newPostReference = postReference.child(newPostID)
-        newPostReference.setValue(["photoURL" : photoURL, "caption" : textView.text!]) { (error, reference) in
+        guard let currentUser = FIRAuth.auth()?.currentUser else {
+            return
+        }
+        let currentUserId = currentUser.uid
+        
+        FIRDatabase.database().reference().child("posts").childByAutoId().setValue(["uid" : currentUserId, "photoURL" : photoURL, "caption" : textView.text!]) { (error, reference) in
             if error != nil {
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 return
@@ -112,7 +129,6 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             self.clean()
             
         }
-        
         
        
         

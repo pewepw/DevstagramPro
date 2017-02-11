@@ -11,12 +11,14 @@ import Foundation
 class Post {
     var caption: String?
     var photoURL: String?
+    var uid: String?
     
     static func transformPostPhoto(dict: [String: Any]) -> Post {
         let post = Post()
         
         post.caption = dict["caption"] as? String
         post.photoURL = dict["photoURL"] as? String
+        post.uid = dict["uid"] as? String
         return post
     }
     

@@ -12,7 +12,6 @@ import FirebaseDatabase
 import FirebaseStorage
 import SDWebImage
 
-
 class HomeVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,11 +21,14 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
+        
         tableView.estimatedRowHeight = 527
         tableView.rowHeight = UITableViewAutomaticDimension
+        
         loadPosts()
         
     }
+    
     
     
     

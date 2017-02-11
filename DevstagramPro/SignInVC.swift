@@ -19,7 +19,8 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       SVProgressHUD.setMaximumDismissTimeInterval(2)
+        
+        SVProgressHUD.setMaximumDismissTimeInterval(2)
         
         // disable signup button
         signInBtn.isEnabled = false
@@ -27,17 +28,15 @@ class SignInVC: UIViewController {
         
         signInBtn.layer.cornerRadius = 5
         
-        
         emailTxt.backgroundColor = .clear
         emailTxt.tintColor = .white
         emailTxt.textColor = .white
         emailTxt.attributedPlaceholder = NSAttributedString(string: emailTxt.placeholder!, attributes: [NSForegroundColorAttributeName : UIColor.init(white: 1, alpha: 0.7)])
         
         let bottomLayer = CALayer()
-        bottomLayer.frame = CGRect(x: 0, y: 29, width: 1000, height: 1)
+        bottomLayer.frame = CGRect(x: 0, y: 29, width: 1000, height: 100)
         bottomLayer.backgroundColor = UIColor(red: 50/255, green: 50/255, blue: 25/255, alpha: 1).cgColor
         emailTxt.layer.addSublayer(bottomLayer)
-        
         
         passwordTxt.backgroundColor = .clear
         passwordTxt.tintColor = .white
@@ -51,26 +50,25 @@ class SignInVC: UIViewController {
         
         handleTextField()
         
-        
-        
     }
     
+    // text field observer
     func handleTextField() {
         emailTxt.addTarget(self, action: #selector(SignInVC.textFieldDidChange), for: .editingChanged)
         passwordTxt.addTarget(self, action: #selector(SignInVC.textFieldDidChange), for: .editingChanged)
         
     }
     
-    
+    // enable sign in button if text field did change
     func textFieldDidChange() {
         if !((emailTxt.text?.isEmpty)!) && !((passwordTxt.text?.isEmpty)!) {
             signInBtn.setTitleColor(UIColor.white, for: .normal)
             signInBtn.isEnabled = true
+            
         }
     }
     
     @IBAction func signInClicked(_ sender: Any) {
-        
         view.endEditing(true)
         SVProgressHUD.show()
         FIRAuth.auth()?.signIn(withEmail: emailTxt.text!, password: passwordTxt.text!, completion: { (user, error) in
@@ -88,7 +86,7 @@ class SignInVC: UIViewController {
         
     }
     
-    
+    // disable keyboard with a tap
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
