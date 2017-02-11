@@ -20,6 +20,7 @@ class HomeVCCell: UITableViewCell {
     @IBOutlet weak var likeCountBtn: UIButton!
     @IBOutlet weak var captionLbl: UILabel!
     
+    
     // as a observer
     var post : Post? {
         didSet {
@@ -27,9 +28,9 @@ class HomeVCCell: UITableViewCell {
         }
     }
     
-    var videoPost: Post? {
+    var user:  User? {
         didSet {
-            // func
+            setUpUserInfo()
         }
     }
     
@@ -44,28 +45,26 @@ class HomeVCCell: UITableViewCell {
     }
     
     func setUpUserInfo() {
-        if let uid = post?.uid {
-            FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
-                if let dict = snapshot.value as? [String: Any] {
-                    let user = User.transformUser(dict: dict)
-                    self.nameLbl.text = user.username
-                    if let profileImageURLString = user.profileImageURL {
-                        let profileImageURL = URL(string: profileImageURLString)
-                        self.avaImg.sd_setImage(with: profileImageURL)
-                    }
-
-                    
-                }
-                
-            })
+        nameLbl.text = user?.username
+        if let photoURLString = user?.profileImageURL {
+            let photoURL = URL(string: photoURLString)
+            avaImg.sd_setImage(with: photoURL, placeholderImage: UIImage(named: "placeholderImg"))
         }
     }
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        avaImg.layer.cornerRadius = avaImg.frame.size.width / 2
+        nameLbl.text = ""
+        captionLbl.text = ""
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        avaImg.image = UIImage(named: "placeholderImg")
+        
+    }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -14,8 +14,10 @@ import SDWebImage
 
 class HomeVC: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     var posts = [Post]()
+    var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +35,33 @@ class HomeVC: UIViewController {
     
     
     func loadPosts() {
+        activityIndicator.startAnimating()
         FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let newPost = Post.transformPostPhoto(dict: dict)
-                self.posts.append(newPost)
-                self.tableView.reloadData()
+                self.fetchUser(uid: newPost.uid!, completed: {
+                    self.posts.append(newPost)
+                    self.activityIndicator.stopAnimating()
+                    self.tableView.reloadData()
+                })
+                
             }
         }
+    }
+    
+    func fetchUser (uid : String, completed: @escaping () -> Void) {
+        
+        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.transformUser(dict: dict)
+                self.users.append(user)
+                completed()
+                
+            }
+            
+        })
+
+        
     }
     
     //    func loadPosts() {
@@ -83,9 +105,11 @@ extension HomeVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! HomeVCCell
         let post = posts[indexPath.row]
+        let user = users[indexPath.row]
         
         // put value to the observer at HomeVCCell to run the function (alt)
         cell.post = post
+        cell.user = user
         
         //cell.textLabel?.text = posts[indexPath.row].caption
         return cell
