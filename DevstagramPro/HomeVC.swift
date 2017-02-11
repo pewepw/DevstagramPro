@@ -31,6 +31,11 @@ class HomeVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = false
+        
+    }
     
     
     
@@ -92,6 +97,10 @@ class HomeVC: UIViewController {
         self.present(signInVC, animated: true, completion: nil)
     }
     
+ 
+    @IBAction func fakeBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "commentSegue", sender: nil)
+    }
     
     
 }
