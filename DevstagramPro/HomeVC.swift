@@ -99,7 +99,7 @@ class HomeVC: UIViewController {
     
  
     @IBAction func fakeBtn(_ sender: Any) {
-        self.performSegue(withIdentifier: "commentSegue", sender: nil)
+        self.performSegue(withIdentifier: "CommentSegue", sender: nil)
     }
     
     

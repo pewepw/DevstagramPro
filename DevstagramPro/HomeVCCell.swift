@@ -41,7 +41,7 @@ class HomeVCCell: UITableViewCell {
             let photoURL = URL(string: photoURLString)
             postImgView.sd_setImage(with: photoURL)
         }
-        setUpUserInfo()
+        
     }
     
     func setUpUserInfo() {

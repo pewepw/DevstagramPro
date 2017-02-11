@@ -14,6 +14,7 @@
 		4A12FA741E4EE47E0038ACBF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A12FA731E4EE47E0038ACBF /* User.swift */; };
 		4A12FA761E4F44560038ACBF /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A12FA751E4F44560038ACBF /* CommentVC.swift */; };
 		4A12FA781E4F44830038ACBF /* CommentVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A12FA771E4F44830038ACBF /* CommentVCCell.swift */; };
+		4A12FA7D1E4F829E0038ACBF /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A12FA7C1E4F829E0038ACBF /* Comment.swift */; };
 		4A31C06F1E499B910079202C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A31C06E1E499B910079202C /* Post.swift */; };
 		4A61AC441E44F11B00AF0F4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61AC431E44F11B00AF0F4F /* AppDelegate.swift */; };
 		4A61AC461E44F11B00AF0F4F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A61AC451E44F11B00AF0F4F /* SignInVC.swift */; };
@@ -48,6 +49,7 @@
 		4A12FA731E4EE47E0038ACBF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4A12FA751E4F44560038ACBF /* CommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		4A12FA771E4F44830038ACBF /* CommentVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVCCell.swift; sourceTree = "<group>"; };
+		4A12FA7C1E4F829E0038ACBF /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		4A31C06E1E499B910079202C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4A61AC401E44F11B00AF0F4F /* DevstagramPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevstagramPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A61AC431E44F11B00AF0F4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,11 +88,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A12FA791E4F820F0038ACBF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */,
+				4A12FA771E4F44830038ACBF /* CommentVCCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		4A31C06D1E499B690079202C /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4A31C06E1E499B910079202C /* Post.swift */,
 				4A12FA731E4EE47E0038ACBF /* User.swift */,
+				4A12FA7C1E4F829E0038ACBF /* Comment.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -118,7 +130,8 @@
 			children = (
 				4A61AC431E44F11B00AF0F4F /* AppDelegate.swift */,
 				4A31C06D1E499B690079202C /* Model */,
-				4A9C81D41E466C27009AF2FD /* ViewControllers */,
+				4A12FA791E4F820F0038ACBF /* View */,
+				4A9C81D41E466C27009AF2FD /* Controller */,
 				4A9C81D31E466C1C009AF2FD /* Storyboards */,
 				4A61AC4C1E44F11B00AF0F4F /* LaunchScreen.storyboard */,
 				4A61AC4F1E44F11B00AF0F4F /* Info.plist */,
@@ -147,22 +160,20 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		4A9C81D41E466C27009AF2FD /* ViewControllers */ = {
+		4A9C81D41E466C27009AF2FD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				4A61AC451E44F11B00AF0F4F /* SignInVC.swift */,
 				4A8AAC1F1E4630DB0022E4A3 /* SignUpVC.swift */,
 				4A8AAC291E46442A0022E4A3 /* HomeVC.swift */,
-				4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */,
 				4A12FA751E4F44560038ACBF /* CommentVC.swift */,
-				4A12FA771E4F44830038ACBF /* CommentVCCell.swift */,
 				4A8AAC2B1E46444C0022E4A3 /* DiscoverVC.swift */,
 				4A8AAC2D1E46445A0022E4A3 /* CameraVC.swift */,
 				4A8AAC311E46446F0022E4A3 /* ActivityVC.swift */,
 				4A8AAC2F1E4644640022E4A3 /* ProfileVC.swift */,
 				4A05464A1E4841F000034079 /* Helper.swift */,
 			);
-			name = ViewControllers;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		B5DC19180DC05E4BFCB4F72D /* Frameworks */ = {
@@ -327,6 +338,7 @@
 				4A05464B1E4841F100034079 /* Helper.swift in Sources */,
 				4A8AAC2A1E46442A0022E4A3 /* HomeVC.swift in Sources */,
 				4AD1242D1E4A442C00E52810 /* HomeVCCell.swift in Sources */,
+				4A12FA7D1E4F829E0038ACBF /* Comment.swift in Sources */,
 				4A8AAC201E4630DB0022E4A3 /* SignUpVC.swift in Sources */,
 				4A12FA781E4F44830038ACBF /* CommentVCCell.swift in Sources */,
 				4A12FA761E4F44560038ACBF /* CommentVC.swift in Sources */,

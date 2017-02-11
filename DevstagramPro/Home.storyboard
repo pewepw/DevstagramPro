@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="527" id="2Kk-jd-0NR" customClass="HomeVCCell" customModule="DevstagramPro" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="postCell" rowHeight="527" id="2Kk-jd-0NR" customClass="HomeVCCell" customModule="DevstagramPro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="527"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Kk-jd-0NR" id="4Ll-Ry-JkV">
@@ -144,7 +144,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mGt-PC-rZh">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <rect key="frame" x="178" y="324" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,7 +167,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="mGt-PC-rZh" id="5D5-jV-2lV"/>
                         <outlet property="tableView" destination="gPg-eQ-TpJ" id="v4O-S4-M2K"/>
-                        <segue destination="UVI-15-Jta" kind="show" identifier="commentSegue" id="sLq-JR-bSc"/>
+                        <segue destination="UVI-15-Jta" kind="show" identifier="CommentSegue" id="sLq-JR-bSc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="njK-6z-lMC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,15 +186,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="End-PQ-8Df">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="88" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="End-PQ-8Df">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="commentCell" rowHeight="88" id="C6R-fI-L8o" customClass="CommentVCCell" customModule="DevstagramPro" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="88" id="C6R-fI-L8o" customClass="CommentVCCell" customModule="DevstagramPro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6R-fI-L8o" id="GU7-ih-9fi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jPb-Mq-IrM">
@@ -218,14 +218,15 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="YYz-0a-EfT" secondAttribute="trailing" constant="8" id="4Bn-XU-HPA"/>
-                                                <constraint firstItem="0hH-RQ-SsV" firstAttribute="leading" secondItem="jPb-Mq-IrM" secondAttribute="trailing" constant="8" id="Cz3-pc-qiy"/>
-                                                <constraint firstItem="0hH-RQ-SsV" firstAttribute="top" secondItem="jPb-Mq-IrM" secondAttribute="top" id="Sit-cj-G00"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YYz-0a-EfT" secondAttribute="bottom" constant="20" id="jk7-vx-Omn"/>
+                                                <constraint firstItem="YYz-0a-EfT" firstAttribute="top" secondItem="0hH-RQ-SsV" secondAttribute="bottom" constant="8" id="L2z-jp-bIn"/>
+                                                <constraint firstItem="0hH-RQ-SsV" firstAttribute="top" secondItem="GU7-ih-9fi" secondAttribute="top" constant="15" id="ZiG-Y4-Mg5"/>
+                                                <constraint firstItem="0hH-RQ-SsV" firstAttribute="leading" secondItem="jPb-Mq-IrM" secondAttribute="trailing" constant="8" id="Zrw-c7-m4r"/>
+                                                <constraint firstItem="YYz-0a-EfT" firstAttribute="leading" secondItem="jPb-Mq-IrM" secondAttribute="trailing" constant="8" id="f3L-zm-P0j"/>
                                                 <constraint firstItem="jPb-Mq-IrM" firstAttribute="leading" secondItem="GU7-ih-9fi" secondAttribute="leading" constant="8" id="ksM-1S-G5m"/>
                                                 <constraint firstItem="jPb-Mq-IrM" firstAttribute="top" secondItem="GU7-ih-9fi" secondAttribute="top" constant="15" id="nHq-Sm-WEm"/>
-                                                <constraint firstItem="YYz-0a-EfT" firstAttribute="leading" secondItem="jPb-Mq-IrM" secondAttribute="trailing" constant="8" id="u60-gO-pJX"/>
-                                                <constraint firstItem="YYz-0a-EfT" firstAttribute="top" secondItem="0hH-RQ-SsV" secondAttribute="bottom" constant="8" id="wIM-Ho-5SW"/>
+                                                <constraint firstItem="YYz-0a-EfT" firstAttribute="top" secondItem="0hH-RQ-SsV" secondAttribute="bottom" constant="8" id="rrk-pI-TKF"/>
+                                                <constraint firstAttribute="bottom" secondItem="YYz-0a-EfT" secondAttribute="bottom" constant="29" id="xju-8P-fR7"/>
+                                                <constraint firstAttribute="trailing" secondItem="YYz-0a-EfT" secondAttribute="trailing" constant="8" id="zwD-nL-jb1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -285,6 +286,7 @@
                     <connections>
                         <outlet property="commentTextField" destination="Tpy-yr-guM" id="dbd-dA-CLD"/>
                         <outlet property="sendButton" destination="hl3-CK-fke" id="jLI-vR-1mk"/>
+                        <outlet property="tableView" destination="End-PQ-8Df" id="QQd-ud-2Tj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dOe-Rz-zgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -300,7 +302,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3xd-ae-wZz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3xd-ae-wZz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
