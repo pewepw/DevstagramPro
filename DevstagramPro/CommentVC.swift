@@ -16,19 +16,22 @@ class CommentVC: UIViewController {
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var constraintToBottom: NSLayoutConstraint!
     
-    let postID = "-KcflX1psj8f7xmy4ghw"
+    var postId : String!
     var comments = [Comment]()
     var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Comment"
+        
         tableView.dataSource = self
         
         tableView.estimatedRowHeight = 88
         tableView.rowHeight = UITableViewAutomaticDimension
-
+        
         
         sendButton.isEnabled = false
         sendButton.layer.cornerRadius = 5
@@ -38,12 +41,34 @@ class CommentVC: UIViewController {
         
         loadComments()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: .UIKeyboardDidHide, object: nil)
+        
+    }
+    
+    func keyboardWillShow(notification : NSNotification) {
+        let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        UIView.animate(withDuration: 0.2) {
+            self.constraintToBottom.constant = keyboardFrame!.height
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func keyboardWillHide(notification : NSNotification) {
+        UIView.animate(withDuration: 0.2) {
+            self.constraintToBottom.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     func loadComments() {
-        let postCommenetRef = FIRDatabase.database().reference().child("post-comments").child(self.postID)
+        let postCommenetRef = FIRDatabase.database().reference().child("post-comments").child(self.postId)
         postCommenetRef.observe(.childAdded, with: { (snapshot) in
-            print("testing")
+            print("\(snapshot.key)")
             FIRDatabase.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: { (commentSnap) in
                 
                 if let dict = commentSnap.value as? [String: Any] {
@@ -73,8 +98,14 @@ class CommentVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tabBarController?.tabBar.isHidden = false
         
     }
     
@@ -96,18 +127,18 @@ class CommentVC: UIViewController {
             }
             
             
-            FIRDatabase.database().reference().child("post-comments").child(self.postID).childByAutoId().setValue(true, withCompletionBlock: { (error, ref) in
+            FIRDatabase.database().reference().child("post-comments").child(self.postId).child(newCommentID).setValue(true, withCompletionBlock: { (error, ref) in
                 if error != nil {
                     SVProgressHUD.showError(withStatus: error?.localizedDescription)
                     return
                 }
-                    
+                
                 
             })
             
             SVProgressHUD.showSuccess(withStatus: "Sent")
             self.empty()
-            
+            self.view.endEditing(true)
             
         }
         
@@ -135,14 +166,14 @@ class CommentVC: UIViewController {
             sendButton.setTitleColor(UIColor.lightGray, for: .normal)
             sendButton.backgroundColor = UIColor.white
             sendButton.isEnabled = false
-
+            
             
         }
         
         
     }
-        
-        
+    
+    
 }
 
 extension CommentVC : UITableViewDataSource {

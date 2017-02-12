@@ -90,16 +90,6 @@
                                                         <constraint firstAttribute="height" constant="0.67000000000000004" id="iUt-jJ-UJw"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prw-e7-62S">
-                                                    <rect key="frame" x="260" y="398" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button">
-                                                        <color key="titleColor" red="0.26274509800000001" green="0.61176470589999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="fakeBtn:" destination="eZh-PH-Teb" eventType="touchUpInside" id="5km-wP-Zqq"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Dgf-tR-HBj" secondAttribute="trailing" id="3Gk-og-irb"/>
@@ -144,7 +134,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="mGt-PC-rZh">
-                                <rect key="frame" x="178" y="324" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -190,7 +180,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="88" id="C6R-fI-L8o" customClass="CommentVCCell" customModule="DevstagramPro" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="88" id="C6R-fI-L8o" customClass="CommentVCCell" customModule="DevstagramPro" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6R-fI-L8o" id="GU7-ih-9fi">
@@ -216,12 +206,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IqT-Fs-C24">
+                                                    <rect key="frame" x="16" y="79" width="343" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.67000000000000004" id="t23-ho-BSk"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="IqT-Fs-C24" firstAttribute="leading" secondItem="GU7-ih-9fi" secondAttribute="leadingMargin" constant="8" id="F6T-UN-h2K"/>
                                                 <constraint firstItem="YYz-0a-EfT" firstAttribute="top" secondItem="0hH-RQ-SsV" secondAttribute="bottom" constant="8" id="L2z-jp-bIn"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IqT-Fs-C24" secondAttribute="bottom" id="NJA-N9-irT"/>
                                                 <constraint firstItem="0hH-RQ-SsV" firstAttribute="top" secondItem="GU7-ih-9fi" secondAttribute="top" constant="15" id="ZiG-Y4-Mg5"/>
                                                 <constraint firstItem="0hH-RQ-SsV" firstAttribute="leading" secondItem="jPb-Mq-IrM" secondAttribute="trailing" constant="8" id="Zrw-c7-m4r"/>
                                                 <constraint firstItem="YYz-0a-EfT" firstAttribute="leading" secondItem="jPb-Mq-IrM" secondAttribute="trailing" constant="8" id="f3L-zm-P0j"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IqT-Fs-C24" secondAttribute="trailing" constant="8" id="gqb-Bx-by4"/>
                                                 <constraint firstItem="jPb-Mq-IrM" firstAttribute="leading" secondItem="GU7-ih-9fi" secondAttribute="leading" constant="8" id="ksM-1S-G5m"/>
                                                 <constraint firstItem="jPb-Mq-IrM" firstAttribute="top" secondItem="GU7-ih-9fi" secondAttribute="top" constant="15" id="nHq-Sm-WEm"/>
                                                 <constraint firstItem="YYz-0a-EfT" firstAttribute="top" secondItem="0hH-RQ-SsV" secondAttribute="bottom" constant="8" id="rrk-pI-TKF"/>
@@ -285,6 +285,7 @@
                     </view>
                     <connections>
                         <outlet property="commentTextField" destination="Tpy-yr-guM" id="dbd-dA-CLD"/>
+                        <outlet property="constraintToBottom" destination="t1j-33-YSW" id="bxu-GV-VAI"/>
                         <outlet property="sendButton" destination="hl3-CK-fke" id="jLI-vR-1mk"/>
                         <outlet property="tableView" destination="End-PQ-8Df" id="QQd-ud-2Tj"/>
                     </connections>

@@ -47,9 +47,9 @@ class CommentVCCell: UITableViewCell {
         commentLbl.text = ""
         
         avaImg.layer.cornerRadius = avaImg.frame.size.width / 2
+        
     }
-    
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         avaImg.image = UIImage(named: "placeholderImg")

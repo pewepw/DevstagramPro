@@ -16,6 +16,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    
     var posts = [Post]()
     var users = [User]()
     
@@ -31,11 +32,7 @@ class HomeVC: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.tabBarController?.tabBar.isHidden = false
-        
-    }
+   
     
     
     
@@ -43,7 +40,7 @@ class HomeVC: UIViewController {
         activityIndicator.startAnimating()
         FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let newPost = Post.transformPostPhoto(dict: dict)
+                let newPost = Post.transformPostPhoto(dict: dict, key: snapshot.key)
                 self.fetchUser(uid: newPost.uid!, completed: {
                     self.posts.append(newPost)
                     self.activityIndicator.stopAnimating()
@@ -97,10 +94,14 @@ class HomeVC: UIViewController {
         self.present(signInVC, animated: true, completion: nil)
     }
     
- 
-    @IBAction func fakeBtn(_ sender: Any) {
-        self.performSegue(withIdentifier: "CommentSegue", sender: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CommentSegue" {
+            let commentVC = segue.destination as! CommentVC
+            let postId = sender as! String
+            commentVC.postId = postId
+        }
     }
+
     
     
 }
@@ -119,6 +120,8 @@ extension HomeVC : UITableViewDataSource {
         // put value to the observer at HomeVCCell to run the function (alt)
         cell.post = post
         cell.user = user
+        
+        cell.homeVC = self
         
         //cell.textLabel?.text = posts[indexPath.row].caption
         return cell

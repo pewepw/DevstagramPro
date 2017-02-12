@@ -20,6 +20,7 @@ class HomeVCCell: UITableViewCell {
     @IBOutlet weak var likeCountBtn: UIButton!
     @IBOutlet weak var captionLbl: UILabel!
     
+    var homeVC : HomeVC?
     
     // as a observer
     var post : Post? {
@@ -57,7 +58,19 @@ class HomeVCCell: UITableViewCell {
         avaImg.layer.cornerRadius = avaImg.frame.size.width / 2
         nameLbl.text = ""
         captionLbl.text = ""
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.didTapCommentImg))
+        tapGesture.numberOfTapsRequired = 1
+        commentImg.isUserInteractionEnabled = true
+        commentImg.addGestureRecognizer(tapGesture)
     }
+    
+    func didTapCommentImg() {
+        if let id = post?.id {
+            homeVC?.performSegue(withIdentifier: "CommentSegue", sender: id)
+
+        }
+            }
     
     override func prepareForReuse() {
         super.prepareForReuse()
