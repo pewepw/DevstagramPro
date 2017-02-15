@@ -65,37 +65,69 @@ class CommentVC: UIViewController {
         view.endEditing(true)
     }
     
+//    func loadComments() {
+//        let postCommenetRef = FIRDatabase.database().reference().child("post-comments").child(self.postId)
+//        postCommenetRef.observe(.childAdded, with: { (snapshot) in
+//            print("\(snapshot.key)")
+//            
+//            API.Comment.observeComments(withPostsID: snapshot.key, completion: { (comment) in
+//                self.fetchUser(uid: comment.uid!, completed: {
+//                    self.comments.append(comment)
+//                    self.tableView.reloadData()
+//                    
+//                })
+//            })
+//        })
+//    }
+    
     func loadComments() {
-        let postCommenetRef = FIRDatabase.database().reference().child("post-comments").child(self.postId)
-        postCommenetRef.observe(.childAdded, with: { (snapshot) in
+        API.Post_Comment.REF_POST_COMMENTS.child(self.postId).observe(.childAdded, with: { (snapshot) in
             print("\(snapshot.key)")
-            FIRDatabase.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: { (commentSnap) in
-                
-                if let dict = commentSnap.value as? [String: Any] {
-                    let newComment = Comment.transformComment(dict: dict)
-                    self.fetchUser(uid: newComment.uid!, completed: {
-                        self.comments.append(newComment)
-                        self.tableView.reloadData()
-                    })
+            
+            API.Comment.observeComments(withPostsID: snapshot.key, completion: { (comment) in
+                self.fetchUser(uid: comment.uid!, completed: {
+                    self.comments.append(comment)
+                    self.tableView.reloadData()
                     
-                }
+                })
             })
         })
     }
     
+    
+    //            FIRDatabase.database().reference().child("comments").child(snapshot.key).observeSingleEvent(of: .value, with: { (commentSnap) in
+    //
+    //                if let dict = commentSnap.value as? [String: Any] {
+    //                    let newComment = Comment.transformComment(dict: dict)
+    //                    self.fetchUser(uid: newComment.uid!, completed: {
+    //                        self.comments.append(newComment)
+    //                        self.tableView.reloadData()
+    //                    })
+    //
+    //                }
+    //            })
+    
     func fetchUser (uid : String, completed: @escaping () -> Void) {
-        
-        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                let user = User.transformUser(dict: dict)
-                self.users.append(user)
-                completed()
-                
-            }
-            
-        })
-        
+        API.User.observeUser(withId: uid) { (user) in
+            self.users.append(user)
+            completed()
+        }
     }
+    
+    
+//    func fetchUser (uid : String, completed: @escaping () -> Void) {
+//        
+//        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+//            if let dict = snapshot.value as? [String: Any] {
+//                let user = User.transformUser(dict: dict)
+//                self.users.append(user)
+//                completed()
+//                
+//            }
+//            
+//        })
+//        
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

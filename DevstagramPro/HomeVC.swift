@@ -32,40 +32,64 @@ class HomeVC: UIViewController {
         
     }
     
-   
     
-    
+
     
     func loadPosts() {
         activityIndicator.startAnimating()
-        FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                let newPost = Post.transformPostPhoto(dict: dict, key: snapshot.key)
-                self.fetchUser(uid: newPost.uid!, completed: {
-                    self.posts.append(newPost)
-                    self.activityIndicator.stopAnimating()
-                    self.tableView.reloadData()
-                })
-                
-            }
+        API.Post.observePosts { (post) in
+            self.fetchUser(uid: post.uid!, completed: {
+                self.posts.append(post)
+                self.activityIndicator.stopAnimating()
+                self.tableView.reloadData()
+            })
         }
+        
     }
+    
+
     
     func fetchUser (uid : String, completed: @escaping () -> Void) {
-        
-        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                let user = User.transformUser(dict: dict)
-                self.users.append(user)
-                completed()
-                
-            }
-            
-        })
-
-        
+        API.User.observeUser(withId: uid) { (user) in
+            self.users.append(user)
+            completed()
+        }
     }
+
     
+    //  2nd refactored
+    //  func loadPosts() {
+    //      activityIndicator.startAnimating()
+    //        FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot: FIRDataSnapshot) in
+    //            if let dict = snapshot.value as? [String: Any] {
+    //                let newPost = Post.transformPostPhoto(dict: dict, key: snapshot.key)
+    //                self.fetchUser(uid: newPost.uid!, completed: {
+    //                    self.posts.append(newPost)
+    //                    self.activityIndicator.stopAnimating()
+    //                    self.tableView.reloadData()
+    //                })
+    //
+    //            }
+    //        }
+    
+    
+    //    2nd refactored
+    //    func fetchUser (uid : String, completed: @escaping () -> Void) {
+    //
+    //        FIRDatabase.database().reference().child("users").child(uid).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+    //            if let dict = snapshot.value as? [String: Any] {
+    //                let user = User.transformUser(dict: dict)
+    //                self.users.append(user)
+    //                completed()
+    //
+    //            }
+    //
+    //        })
+    //
+    //
+    //    }
+    
+    //    1st refactored
     //    func loadPosts() {
     //        FIRDatabase.database().reference().child("posts").observe(.childAdded) { (snapshot : FIRDataSnapshot) in
     //            if let dict = snapshot.value as? [String : Any] {
@@ -101,7 +125,7 @@ class HomeVC: UIViewController {
             commentVC.postId = postId
         }
     }
-
+    
     
     
 }

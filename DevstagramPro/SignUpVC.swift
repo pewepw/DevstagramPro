@@ -124,7 +124,7 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 } else {
                     SVProgressHUD.showSuccess(withStatus: "Success!")
                     
-                    // send image to database and extract a image URL
+                    // send image to database and extract an image URL
                     let storageRef = FIRStorage.storage().reference().child("profile_image").child(user!.uid)
                     storageRef.put(imageData, metadata: nil, completion: { (metadata, error) in
                         if error != nil {
@@ -153,7 +153,6 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     @IBAction func dismissClicked(_ sender: Any) {
-        
         self.dismiss(animated: true, completion: nil)
     }
     
