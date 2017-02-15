@@ -8,12 +8,16 @@
 
 
 import Foundation
+import FirebaseAuth
+
 class Post {
     var caption: String?
     var photoURL: String?
     var uid: String?
     var id: String?
-    
+    var likesCount: Int?
+    var likes: Dictionary<String, Any>?
+    var isLiked: Bool?
     
     static func transformPostPhoto(dict: [String: Any], key: String) -> Post {
         let post = Post()
@@ -22,6 +26,19 @@ class Post {
         post.caption = dict["caption"] as? String
         post.photoURL = dict["photoURL"] as? String
         post.uid = dict["uid"] as? String
+        post.likesCount = dict["likesCount"] as? Int
+        post.likes = dict["likes"] as? Dictionary<String, Any>
+        if let currentUserID = FIRAuth.auth()?.currentUser?.uid {
+            if post.likes != nil {
+                if post.likes?[currentUserID] != nil {
+                    post.isLiked = true
+                } else {
+                    post.isLiked = false
+                }
+            }
+            
+        }
+        
         return post
     }
     

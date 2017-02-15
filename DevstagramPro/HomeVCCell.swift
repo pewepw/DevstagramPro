@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class HomeVCCell: UITableViewCell {
     
@@ -44,6 +45,35 @@ class HomeVCCell: UITableViewCell {
             postImgView.sd_setImage(with: photoURL)
         }
         
+        API.Post.REF_POSTS.child(post!.id!).observe(.value, with: { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let post = Post.transformPostPhoto(dict: dict, key: snapshot.key)
+                self.updateLike(post: post)
+            }
+        })
+        
+        
+        
+        API.Post.REF_POSTS.child(post!.id!).observe(.childChanged, with: { (snapshot) in
+            if let value = snapshot.value as? Int {
+                self.likeCountBtn.setTitle("\(value) likes", for: .normal)
+            }
+        })
+        
+    }
+    
+    func updateLike(post: Post) {
+        let imageName = post.likes == nil || !post.isLiked! ? "like" : "likeSelected"
+        likeImg.image = UIImage(named: imageName)
+        if let count = post.likesCount {
+            if count != 0 {
+                likeCountBtn.setTitle("\(count) likes", for: .normal)
+            } else {
+                likeCountBtn.setTitle("Be the first to like this", for: .normal)
+            }
+        }
+        
+            
     }
     
     func setUpUserInfo() {
@@ -65,46 +95,51 @@ class HomeVCCell: UITableViewCell {
         commentImg.isUserInteractionEnabled = true
         commentImg.addGestureRecognizer(tapGesture)
         
-//        let tapGestureLikeImage = UITapGestureRecognizer(target: self, action: #selector(self.didTapLikeImg))
-//        tapGestureLikeImage.numberOfTapsRequired = 1
-//        likeImg.isUserInteractionEnabled = true
-//        likeImg.addGestureRecognizer(tapGestureLikeImage)
-//    }
-//    
-//    func didTapLikeImg() {
-//        postRef =
-//        incrementLike(forRef: postRef)
-//    }
-//    
-//    func incrementLike(forRef: FIRDatabaseReference) {
-//        ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
-//            if var post = currentData.value as? [String : AnyObject], let uid = FIRAuth.auth()?.currentUser?.uid {
-//                var stars: Dictionary<String, Bool>
-//                stars = post["stars"] as? [String : Bool] ?? [:]
-//                var starCount = post["starCount"] as? Int ?? 0
-//                if let _ = stars[uid] {
-//                    // Unstar the post and remove self from stars
-//                    starCount -= 1
-//                    stars.removeValue(forKey: uid)
-//                } else {
-//                    // Star the post and add self to stars
-//                    starCount += 1
-//                    stars[uid] = true
-//                }
-//                post["starCount"] = starCount as AnyObject?
-//                post["stars"] = stars as AnyObject?
-//                
-//                // Set value and report transaction success
-//                currentData.value = post
-//                
-//                return FIRTransactionResult.success(withValue: currentData)
-//            }
-//            return FIRTransactionResult.success(withValue: currentData)
-//        }) { (error, committed, snapshot) in
-//            if let error = error {
-//                print(error.localizedDescription)
-//            }
-//        }
+        let tapGestureLikeImage = UITapGestureRecognizer(target: self, action: #selector(self.didTapLikeImg))
+        tapGestureLikeImage.numberOfTapsRequired = 1
+        likeImg.isUserInteractionEnabled = true
+        likeImg.addGestureRecognizer(tapGestureLikeImage)
+    }
+    
+    func didTapLikeImg() {
+        postRef = API.Post.REF_POSTS.child(post!.id!)
+        incrementLike(forRef: postRef)
+    }
+    
+    func incrementLike(forRef ref: FIRDatabaseReference) {
+        ref.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            if var post = currentData.value as? [String : AnyObject], let uid = FIRAuth.auth()?.currentUser?.uid {
+                print("value: \(currentData.value)")
+                var likes: Dictionary<String, Bool>
+                likes = post["likes"] as? [String : Bool] ?? [:]
+                var likesCount = post["likesCount"] as? Int ?? 0
+                if let _ = likes[uid] {
+                    // Unstar the post and remove self from stars
+                    likesCount -= 1
+                    likes.removeValue(forKey: uid)
+                } else {
+                    // Star the post and add self to stars
+                    likesCount += 1
+                    likes[uid] = true
+                }
+                post["likesCount"] = likesCount as AnyObject?
+                post["likes"] = likes as AnyObject?
+                
+                // Set value and report transaction success
+                currentData.value = post
+                
+                return FIRTransactionResult.success(withValue: currentData)
+            }
+            return FIRTransactionResult.success(withValue: currentData)
+        }) { (error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            if let dict = snapshot?.value as? [String: Any] {
+                let post = Post.transformPostPhoto(dict: dict, key: snapshot!.key)
+                self.updateLike(post: post)
+            }
+        }
     }
     
     
