@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 class UserAPI {
     var REF_USERS = FIRDatabase.database().reference().child("users")
@@ -22,4 +23,12 @@ class UserAPI {
         
         
     }
+    
+    var REF_CURRENT_USER: FIRDatabaseReference? {
+        guard let currentUser = FIRAuth.auth()?.currentUser else {
+            return nil
+        }
+        return REF_USERS.child(currentUser.uid)
+    }
+    
 }
