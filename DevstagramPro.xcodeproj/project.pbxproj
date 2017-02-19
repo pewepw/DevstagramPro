@@ -36,6 +36,7 @@
 		4A9C81D01E465C65009AF2FD /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81CF1E465C65009AF2FD /* Profile.storyboard */; };
 		4A9C81D61E466DFD009AF2FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */; };
 		4ABD1E1C1E59DBB500274A9F /* ProfileVCReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD1E1B1E59DBB500274A9F /* ProfileVCReusable.swift */; };
+		4ABD1E1E1E5A025A00274A9F /* MyPostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD1E1D1E5A025A00274A9F /* MyPostsAPI.swift */; };
 		4AC586661E4891020068A84B /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AC586651E488F670068A84B /* Pacifico.ttf */; };
 		4ACE0C001E51A6FE007D4112 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE0BFF1E51A6FE007D4112 /* PostAPI.swift */; };
 		4AD1242D1E4A442C00E52810 /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */; };
@@ -79,6 +80,7 @@
 		4A9C81CF1E465C65009AF2FD /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4ABD1E1B1E59DBB500274A9F /* ProfileVCReusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVCReusable.swift; sourceTree = "<group>"; };
+		4ABD1E1D1E5A025A00274A9F /* MyPostsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostsAPI.swift; sourceTree = "<group>"; };
 		4AC586651E488F670068A84B /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		4ACE0BFF1E51A6FE007D4112 /* PostAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVCCell.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				4ACE0BFF1E51A6FE007D4112 /* PostAPI.swift */,
 				4AD13D441E5415AC00DCB08E /* CommentAPI.swift */,
 				4AD13D461E541CCD00DCB08E /* Post_CommentAPI.swift */,
+				4ABD1E1D1E5A025A00274A9F /* MyPostsAPI.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				4A8AAC301E4644640022E4A3 /* ProfileVC.swift in Sources */,
 				4A8AAC2C1E46444C0022E4A3 /* DiscoverVC.swift in Sources */,
 				4AD13D451E5415AC00DCB08E /* CommentAPI.swift in Sources */,
+				4ABD1E1E1E5A025A00274A9F /* MyPostsAPI.swift in Sources */,
 				4A31C06F1E499B910079202C /* Post.swift in Sources */,
 				4A05464B1E4841F100034079 /* Helper.swift in Sources */,
 				4A8AAC2A1E46442A0022E4A3 /* HomeVC.swift in Sources */,

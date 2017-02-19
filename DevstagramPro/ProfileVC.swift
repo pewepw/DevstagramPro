@@ -7,36 +7,50 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class ProfileVC: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var user: User!
+    var posts: [Post] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
         fetchUser()
+        fetchMyPosts()
         
         
     }
+    
     
     func fetchUser() {
         API.User.observerCurrentUser { (user) in
             self.user = user
             self.collectionView.reloadData()
-            
         }
-
     }
-
     
+    func fetchMyPosts() {
+        guard let currentUser = FIRAuth.auth()?.currentUser else {
+            return
+        }
+        API.MyPosts.REF_MYPOSTS.child(currentUser.uid).observe(.childAdded, with: { (snapshot) in
+            API.Post.observePosts(withId: snapshot.key, completion: { (post) in
+                self.posts.append(post)
+                self.collectionView.reloadData()
+            })
+        })
+        
+    }
 }
 
 extension ProfileVC : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      return 1
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

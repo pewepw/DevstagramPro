@@ -33,7 +33,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         photoImg.isUserInteractionEnabled = true
         photoImg.addGestureRecognizer(tapGesture)
         
-    
+        
         
     }
     
@@ -97,21 +97,21 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         
     }
     
-//    func sendDatatoDatabase (photoURL : String) {
-//        let ref = FIRDatabase.database().reference()
-//        let postReference = ref.child("posts")
-//        let newPostID = postReference.childByAutoId().key
-//        let newPostReference = postReference.child(newPostID)
-//        newPostReference.setValue(["photoURL" : photoURL, "caption" : textView.text!]) { (error, reference) in
-//            if error != nil {
-//                SVProgressHUD.showError(withStatus: error?.localizedDescription)
-//                return
-//            }
-//            SVProgressHUD.showSuccess(withStatus: "Post Shared")
-//            self.tabBarController?.selectedIndex = 0
-//            self.clean()
-//            
-//        }
+    //    func sendDatatoDatabase (photoURL : String) {
+    //        let ref = FIRDatabase.database().reference()
+    //        let postReference = ref.child("posts")
+    //        let newPostID = postReference.childByAutoId().key
+    //        let newPostReference = postReference.child(newPostID)
+    //        newPostReference.setValue(["photoURL" : photoURL, "caption" : textView.text!]) { (error, reference) in
+    //            if error != nil {
+    //                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+    //                return
+    //            }
+    //            SVProgressHUD.showSuccess(withStatus: "Post Shared")
+    //            self.tabBarController?.selectedIndex = 0
+    //            self.clean()
+    //
+    //        }
     
     func sendDatatoDatabase (photoURL : String) {
         guard let currentUser = FIRAuth.auth()?.currentUser else {
@@ -124,15 +124,22 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 return
             }
+            
+            let myPostRef = API.MyPosts.REF_MYPOSTS.child(currentUserId).childByAutoId()
+            myPostRef.setValue(true, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                    return
+                }
+            })
+            
+            
             SVProgressHUD.showSuccess(withStatus: "Post Shared")
             self.tabBarController?.selectedIndex = 0
             self.clean()
             
+            
         }
-        
-       
-        
-        
     }
     
     func handleBadPost() {
@@ -150,7 +157,7 @@ class CameraVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             
         }
     }
-
+    
     
     func clean() {
         self.textView.text = ""
