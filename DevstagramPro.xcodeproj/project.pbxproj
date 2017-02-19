@@ -35,6 +35,7 @@
 		4A9C81CE1E465C1D009AF2FD /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81CD1E465C1D009AF2FD /* Activity.storyboard */; };
 		4A9C81D01E465C65009AF2FD /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81CF1E465C65009AF2FD /* Profile.storyboard */; };
 		4A9C81D61E466DFD009AF2FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */; };
+		4ABD1E1C1E59DBB500274A9F /* ProfileVCReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD1E1B1E59DBB500274A9F /* ProfileVCReusable.swift */; };
 		4AC586661E4891020068A84B /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4AC586651E488F670068A84B /* Pacifico.ttf */; };
 		4ACE0C001E51A6FE007D4112 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE0BFF1E51A6FE007D4112 /* PostAPI.swift */; };
 		4AD1242D1E4A442C00E52810 /* HomeVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */; };
@@ -77,6 +78,7 @@
 		4A9C81CD1E465C1D009AF2FD /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		4A9C81CF1E465C65009AF2FD /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		4A9C81D51E466DFD009AF2FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4ABD1E1B1E59DBB500274A9F /* ProfileVCReusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVCReusable.swift; sourceTree = "<group>"; };
 		4AC586651E488F670068A84B /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pacifico.ttf; sourceTree = "<group>"; };
 		4ACE0BFF1E51A6FE007D4112 /* PostAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVCCell.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				4AD1242C1E4A442C00E52810 /* HomeVCCell.swift */,
 				4A12FA771E4F44830038ACBF /* CommentVCCell.swift */,
+				4ABD1E1B1E59DBB500274A9F /* ProfileVCReusable.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				4AD1242D1E4A442C00E52810 /* HomeVCCell.swift in Sources */,
 				4A12FA7D1E4F829E0038ACBF /* Comment.swift in Sources */,
 				4A8AAC201E4630DB0022E4A3 /* SignUpVC.swift in Sources */,
+				4ABD1E1C1E59DBB500274A9F /* ProfileVCReusable.swift in Sources */,
 				4A12FA781E4F44830038ACBF /* CommentVCCell.swift in Sources */,
 				4A12FA761E4F44560038ACBF /* CommentVC.swift in Sources */,
 				4A61AC441E44F11B00AF0F4F /* AppDelegate.swift in Sources */,
