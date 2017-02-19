@@ -113,6 +113,7 @@
 		4A31C06D1E499B690079202C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4A05464A1E4841F000034079 /* Helper.swift */,
 				4A31C06E1E499B910079202C /* Post.swift */,
 				4A12FA731E4EE47E0038ACBF /* User.swift */,
 				4A12FA7C1E4F829E0038ACBF /* Comment.swift */,
@@ -189,7 +190,6 @@
 				4A8AAC2D1E46445A0022E4A3 /* CameraVC.swift */,
 				4A8AAC311E46446F0022E4A3 /* ActivityVC.swift */,
 				4A8AAC2F1E4644640022E4A3 /* ProfileVC.swift */,
-				4A05464A1E4841F000034079 /* Helper.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
