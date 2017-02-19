@@ -15,20 +15,26 @@ class ProfileVCReusable: UICollectionReusableView {
     @IBOutlet weak var followersCountLabel: UIStackView!
     @IBOutlet weak var followingsCountLabel: UIStackView!
     
+    var user: User? {
+        didSet {
+            updateView()
+        }
+    }
+    
     
     func updateView() {
-        API.User.REF_CURRENT_USER?.observeSingleEvent(of: .value, with: { (snapshot) in
-            if let dict = snapshot.value as? [String: Any] {
-                let user = User.transformUser(dict: dict)
-                self.nameLabel.text = user.username
-                
-                if let photoURLString = user.profileImageURL {
-                    let photoURL = URL(string: photoURLString)
-                    self.avaImg.sd_setImage(with: photoURL)
-                }
-            }
-        })
+        
+        self.nameLabel.text = user!.username
+        
+        if let photoURLString = user!.profileImageURL {
+            let photoURL = URL(string: photoURLString)
+            self.avaImg.sd_setImage(with: photoURL)
+        }
+        
         
     }
 }
+
+
+
 
